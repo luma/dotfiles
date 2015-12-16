@@ -21,14 +21,12 @@
 
 #   Change Prompt
 #   ------------------------------------------------------------
-    # export PS1="________________________________________________________________________________\n| \w @ \h (\u) \n| => "
-    # export PS2="| => "
 
-    parse_git_branch() {
-        git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-    }
+    export GITAWAREPROMPT=git-aware-prompt
+    source "${GITAWAREPROMPT}/main.sh"
 
-    export PS1="\u@\h \W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
+    export PS1="\u@\h \W \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
+    export SUDO_PS1="\[$bakred\]\u@\h\[$txtrst\] \w\$ "
 
 
 #   Set Paths

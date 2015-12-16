@@ -21,3 +21,9 @@ rm -fr .git
 ```
 
 Only do the final `rm` if you don't want your home dir to become a git repo
+
+
+## References
+
+* http://haacked.com/archive/2014/07/28/github-flow-aliases/
+* https://github.com/jimeh/git-aware-prompt

@@ -34,8 +34,12 @@
     export PATH="$PATH:/usr/local/bin/"
     export PATH="/usr/local/git/bin:/sw/bin/:/usr/local/bin:/usr/local/:/usr/local/sbin:~/bin:$PATH"
 
-    #   NVM setup
-    #   ------------------------------------------------------------
+#   OPENTOK_NPM_TOKEN:  Npm token for the private OpenTok org
+#   -------------------------------------------------------------------
+    export OPENTOK_NPM_TOKEN=XXX
+
+#   NVM setup
+#   ------------------------------------------------------------
     export NVM_DIR="/Users/rollyfordham/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
@@ -275,6 +279,10 @@ httpHeaders () { /usr/bin/curl -I -L $@ ; }             # httpHeaders:      Grab
 #   httpDebug:  Download a web page and show info on what took time
 #   -------------------------------------------------------------------
     httpDebug () { /usr/bin/curl $@ -o /dev/null -w "dns: %{time_namelookup} connect: %{time_connect} pretransfer: %{time_pretransfer} starttransfer: %{time_starttransfer} total: %{time_total}\n" ; }
+
+# Homebrew
+#   -------------------------------------------------------------------
+    export HOMEBREW_GITHUB_API_TOKEN=XXX
 
 
 #   ---------------------------------------

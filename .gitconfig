@@ -34,6 +34,7 @@
   unstage = reset HEAD --
   ec      = config --global -e
   up      = !git pull --rebase --prune $@ && git submodule update --init --recursive
+  upstream= !git fetch upstream && git merge upstream/develop
   cob     = checkout -b
   cm      = !git add -A && git commit -m
   save    = !git add -A && git commit -m 'SAVEPOINT'
@@ -48,3 +49,4 @@
   l       = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
   ll      = log --stat --abbrev-commit
   d       = diff --color-words
+

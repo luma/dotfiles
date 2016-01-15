@@ -77,6 +77,21 @@ Creates easy Command Palette commands for setting the syntax of the current file
 Sorts your lines. Never gets tired.
 
 
+[local_npm](https://github.com/nolanlawson/local-npm)
+
+Then set npm to point to the local server:
+
+``` bash
+npm set registry http://127.0.0.1:5080
+```
+
+To switch back, you can do:
+``` bash
+npm set registry https://registry.npmjs.org
+```
+
+
+
 ## References
 
 * http://haacked.com/archive/2014/07/28/github-flow-aliases/

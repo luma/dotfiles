@@ -32,7 +32,7 @@
 #   Set Paths
 #   ------------------------------------------------------------
     export PATH="$PATH:/usr/local/bin"
-    export PATH="/usr/local/git/bin:/sw/bin:/usr/local/bin:/usr/local:/usr/local/sbin:~/bin:$PATH"
+    export PATH="/usr/local/git/bin:/sw/bin:/usr/local/bin:/usr/local:/usr/local/sbin:~/.cargo/bin/:~/bin:$PATH"
 
 #   OPENTOK_NPM_TOKEN:  Npm token for the private OpenTok org
 #   -------------------------------------------------------------------

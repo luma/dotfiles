@@ -7,6 +7,7 @@
 2. (nvm)[https://github.com/creationix/nvm]
 3. node+npm. Install via nvm
 4. (hub)[https://hub.github.com/]
+5. Install Rust+Cargo
 
 ## Setup
 

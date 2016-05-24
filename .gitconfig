@@ -48,5 +48,6 @@
   check = "!f() { git whatchanged $1 -1 | awk '/^:/ {print $NF}' | xargs check.py; }; f"
   l       = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
   ll      = log --stat --abbrev-commit
+  tree    = log --graph \"--pretty=format:%h %Cgreen%d%Creset %Cred%an%Creset %s\" --abbrev-commit
   d       = diff --color-words
 

@@ -32,7 +32,7 @@
 #   Set Paths
 #   ------------------------------------------------------------
     export PATH="$PATH:/usr/local/bin"
-    export PATH="/usr/local/git/bin:/sw/bin:/usr/local/bin:/usr/local:/usr/local/sbin:~/.cargo/bin/:~/bin:$PATH"
+    export PATH="~/webrtc/depot_tools:/usr/local/git/bin:/sw/bin:/usr/local/bin:/usr/local:/usr/local/sbin:~/.cargo/bin:/usr/local/Cellar/elixir/1.3.2/bin/:~/bin:$PATH"
 
 #   OPENTOK_NPM_TOKEN:  Npm token for the private OpenTok org
 #   -------------------------------------------------------------------
@@ -296,6 +296,7 @@ alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rul
 # Rust lang
 #   -------------------------------------------------------------------
     export RUST_SRC_PATH=~/opensource/rust/rustc-nightly/src
+
 
 
 #   ---------------------------------------

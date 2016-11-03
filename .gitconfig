@@ -2,7 +2,7 @@
   name = Rolly Fordham
   email = rolly@luma.co.nz
 [core]
-  editor = atom --wait
+  editor = subl -n -w
   whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
   pager = less -r
 [credential]

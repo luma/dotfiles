@@ -1,3 +1,5 @@
+apm install atom-beautify
+apm install autocomplete-elixir
 apm install autocomplete-go
 apm install builder-go
 apm install dash
@@ -14,12 +16,16 @@ apm install gorename
 apm install jsonpp
 apm install language-docker
 apm install language-dots
+apm install language-elixir
 apm install language-go
 apm install language-ignore
+apm install language-protobuf
 apm install language-rust
 apm install linter
 apm install linter-docker
+apm install linter-elixirc
 apm install linter-eslint
+apm install linter-protocol-buffer
 apm install linter-rust
 apm install markdown-preview-plus
 apm install mathjax-wrapper

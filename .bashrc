@@ -119,7 +119,7 @@
 #   Set Paths
 #   ------------------------------------------------------------
     export PATH="$PATH:/usr/local/bin"
-    export PATH="~/webrtc/depot_tools:/usr/local/git/bin:/sw/bin:/usr/local/bin:/usr/local:/usr/local/sbin:~/.cargo/bin:/usr/local/go/bin:~/bin:~/.yarn/bin:$PATH"
+    export PATH="/usr/local/git/bin:/sw/bin:/usr/local/bin:/usr/local:/usr/local/sbin:~/.cargo/bin:/usr/local/go/bin:~/bin:~/.yarn/bin:$PATH"
 
 
 #   NVM setup
@@ -128,7 +128,6 @@
     export NVM_DIR="$HOME/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 
 #   Set Default Editor (change 'Nano' to the editor of your choice)
 #   ------------------------------------------------------------
@@ -144,29 +143,16 @@
     export CLICOLOR=1
     export LSCOLORS=ExFxBxDxCxegedabagacad
 
-#   Classpath for Antlr4
-#   ------------------------------------------------------------
-    export CLASSPATH=".:/usr/local/lib/antlr-4.7-complete.jar:$CLASSPATH"
-
-
 #   -----------------------------
 #   2.  MAKE TERMINAL BETTER
 #   -----------------------------
 
-    alias git=hub
     alias cp='cp -iv'                           # Preferred 'cp' implementation
     alias mv='mv -iv'                           # Preferred 'mv' implementation
     alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
     alias ll='ls -FGlAhp'                       # Preferred 'ls' implementation
     alias less='less -FSRXc'                    # Preferred 'less' implementation
     cd() { builtin cd "$@"; ll; }               # Always list directory contents upon 'cd'
-    alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)
-    alias ..='cd ../'                           # Go back 1 directory level
-    alias ...='cd ../../'                       # Go back 2 directory levels
-    alias .3='cd ../../../'                     # Go back 3 directory levels
-    alias .4='cd ../../../../'                  # Go back 4 directory levels
-    alias .5='cd ../../../../../'               # Go back 5 directory levels
-    alias .6='cd ../../../../../../'            # Go back 6 directory levels
     alias edit='subl'                           # edit:         Opens any file in sublime editor
     alias f='open -a Finder ./'                 # f:            Opens current directory in MacOS Finder
     alias ~="cd ~"                              # ~:            Go Home
@@ -178,76 +164,11 @@
     alias cic='set completion-ignore-case On'   # cic:          Make tab-completion case-insensitive
     mcd () { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new Dir and jumps inside
 
-
-    # Add an "alert" alias for long running commands.  Use like so:
-    #   sleep 10; alert
-    alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-
-#   lr:  Full Recursive Directory Listing
-#   ------------------------------------------
-    alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less'
-
 #   mans:   Search manpage given in agument '1' for term given in argument '2' (case insensitive)
 #           displays paginated result with colored search terms and two lines surrounding each hit.             Example: mans mplayer codec
 #   --------------------------------------------------------------------
     mans () {
         man $1 | grep -iC2 --color=always $2 | less
-    }
-
-#   showa: to remind yourself of an alias (given some part of it)
-#   ------------------------------------------------------------
-    showa () { /usr/bin/grep --color=always -i -a1 $@ ~/.bash_aliases | grep -v '^\s*$' | less -FSRXc ; }
-
-
-#   -------------------------------
-#   3.  FILE AND FOLDER MANAGEMENT
-#   -------------------------------
-    zipf () { zip -r "$1".zip "$1" ; }          # zipf:         To create a ZIP archive of a folder
-    alias numFiles='echo $(ls -1 | wc -l)'      # numFiles:     Count of non-hidden files in current dir
-    alias make1mb='mkfile 1m ./1MB.dat'         # make1mb:      Creates a file of 1mb size (all zeros)
-    alias make5mb='mkfile 5m ./5MB.dat'         # make5mb:      Creates a file of 5mb size (all zeros)
-    alias make10mb='mkfile 10m ./10MB.dat'      # make10mb:     Creates a file of 10mb size (all zeros)
-
-#   cdf:  'Cd's to frontmost window of MacOS Finder
-#   ------------------------------------------------------
-    cdf () {
-        currFolderPath=$( /usr/bin/osascript <<EOT
-            tell application "Finder"
-                try
-            set currFolder to (folder of the front window as alias)
-                on error
-            set currFolder to (path to desktop folder as alias)
-                end try
-                POSIX path of currFolder
-            end tell
-EOT
-        )
-        echo "cd to \"$currFolderPath\""
-        cd "$currFolderPath"
-    }
-
-#   extract:  Extract most know archives with one command
-#   ---------------------------------------------------------
-    extract () {
-        if [ -f $1 ] ; then
-          case $1 in
-            *.tar.bz2)   tar xjf $1     ;;
-            *.tar.gz)    tar xzf $1     ;;
-            *.bz2)       bunzip2 $1     ;;
-            *.rar)       unrar e $1     ;;
-            *.gz)        gunzip $1      ;;
-            *.tar)       tar xf $1      ;;
-            *.tbz2)      tar xjf $1     ;;
-            *.tgz)       tar xzf $1     ;;
-            *.zip)       unzip $1       ;;
-            *.Z)         uncompress $1  ;;
-            *.7z)        7z x $1        ;;
-            *)     echo "'$1' cannot be extracted via extract()" ;;
-             esac
-         else
-             echo "'$1' is not a valid file"
-         fi
     }
 
 
@@ -331,11 +252,6 @@ alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rul
     export PATH=$PATH:/usr/local/opt/go/libexec/bin:$GOPATH/bin
 
 
-# Rust lang
-#   -------------------------------------------------------------------
-    export RUST_SRC_PATH=~/opensource/rust/rustc-nightly/src
-
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -360,11 +276,6 @@ alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rul
 #   ---------------------------------------
 #   9.  REMINDERS & NOTES
 #   ---------------------------------------
-
-#  https://github.com/gnunn1/tilix/wiki/VTE-Configuration-Issue
-    if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-        source /etc/profile.d/vte.sh
-    fi
 
 #   ---------------------------------------
 #   9.  REMINDERS & NOTES
@@ -396,5 +307,6 @@ alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rul
 #   the above create files that are almost all zeros - if random bytes are desired
 #   then use: ~/Dev/Perl/randBytes 1048576 > 10MB.dat
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+
+# add Pulumi to the PATH
+export PATH=$PATH:$HOME/.pulumi/bin

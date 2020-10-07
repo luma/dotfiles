@@ -2,7 +2,7 @@
   name = Rolly Fordham
   email = rolly@luma.co.nz
 [core]
-  editor = subl -n -w
+  editor = flatpak run com.sublimetext.three -n -w
   whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
   pager = less -r
 [credential]
